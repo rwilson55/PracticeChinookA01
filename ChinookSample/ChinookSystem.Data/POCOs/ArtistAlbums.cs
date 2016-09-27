@@ -9,6 +9,6 @@ namespace ChinookSystem.Data.POCOs
     public class ArtistAlbums
     {
         public string Name { get; set; }
-        public int Title { get; set; }
+        public string Title { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace ChinookSystem.Data.Entities
         public string Title { get; set; }
         public int? ReportTo { get; set; }
         public DateTime? BirthDate { get; set; }
-        public DateTime? HIreDate { get; set; }
+        public DateTime? HireDate { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }

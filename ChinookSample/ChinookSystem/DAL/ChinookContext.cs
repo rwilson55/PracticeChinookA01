@@ -30,5 +30,7 @@ namespace ChinookSystem.DAL
         public DbSet<Track> Tracks { get; set; }
         public DbSet<MediaType> MediaTypes { get; set; }
         
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

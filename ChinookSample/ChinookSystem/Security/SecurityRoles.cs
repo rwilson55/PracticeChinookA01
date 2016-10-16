@@ -11,6 +11,7 @@ namespace ChinookSystem.Security
         public const string WebsiteAdmins = "WebsiteAdmins";
         public const string RegisteredUsers = "RegisteredUsers";
         public const string Staff = "Staff";
+        public const string Auditor = "Auditor";
 
         //Read-only
         public static List<string> StartupSecurityRoles
@@ -21,6 +22,7 @@ namespace ChinookSystem.Security
                 roleList.Add(WebsiteAdmins);
                 roleList.Add(RegisteredUsers);
                 roleList.Add(Staff);
+                roleList.Add(Auditor);
                 return roleList;
             }
         }

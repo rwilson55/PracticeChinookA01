@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- Nav tabs -->
-            <ul class="nav nav-tab">
+            <ul class="nav nav-tabs">
                 <li class="active"><a href="#users" data-toggle="tab">Users</a></li>
                 <li><a href="#roles" data-toggle="tab">Roles</a></li>
                 <li><a href="#unregistered" data-toggle="tab">Unregistered Users</a></li>
@@ -21,18 +21,33 @@
                 </div> <!-- eop -->
                 <!-- role tab -->
                 <div class="tab-pane fade" id="roles">
-                    <asp:ListView ID="RoleListView" runat="server" DataSourceID="RoleListViewODS" ItemType="RoleProfile" InsertItemPosition="LastItem">
+                    <!-- DataKeyNames contains the considered pkey field of class that is being used for Insert, Update or Delete -->
+
+                    <!-- RefreshAll will call a generic method in my code behind that will cause the ODS sets to re-bind their data -->
+                    <asp:ListView ID="RoleListView" runat="server" 
+                        DataSourceID="RoleListViewODS" 
+                        ItemType="ChinookSystem.Security.RoleProfile" 
+                        InsertItemPosition="LastItem"
+                        DataKeyNames="RoleId"
+                        OnItemInserted="RefreshAll"
+                        OnItemDeleted="RefreshAll">
                         <EmptyItemTemplate>
                             <span>No security roles have been set up.</span>
                         </EmptyItemTemplate>
                         <LayoutTemplate>
-                            <div class="col-sm-3 h4">Action</div>
-                            <div class="col-sm-3 h4">RoleName</div>
-                            <div class="col-sm-3 h4">Users</div>
+                            <div class="row biginfo">
+                                <div class="col-sm-3 h4">Action</div>
+                                <div class="col-sm-3 h4">RoleName</div>
+                                <div class="col-sm-3 h4">Users</div>
+                            </div>
+                            <div class="row" id="itemPlaceholder" runat="server">
+                            </div>
                         </LayoutTemplate>
                         <ItemTemplate>
+                            <div class="row">
                             <div class="col-sm-3">
-                                <asp:LinkButton ID="RemoveRole" runat="server">Remove</asp:LinkButton>
+                                <asp:LinkButton ID="RemoveRole" runat="server"
+                                    CommandName="Delete">Remove</asp:LinkButton>
                             </div>
                             <div class="col-sm-3">
                                 <%# Item.RoleName %>
@@ -45,18 +60,25 @@
                                     <SeparatorTemplate>, </SeparatorTemplate>
                                 </asp:Repeater>
                             </div>
+                            </div>
                         </ItemTemplate>
+                        
                         <InsertItemTemplate>
+                        <div class="row">
                             <div class="col-sm-3">
-                                <asp:LinkButton ID="InsertRole" runat="server">Insert</asp:LinkButton>&nbsp;&nbsp;
+                                <asp:LinkButton ID="InsertRole" runat="server"
+                                    CommandName="Insert">Insert</asp:LinkButton>&nbsp;&nbsp;
                                 <asp:LinkButton ID="Cancel" runat="server">Cancel</asp:LinkButton>
                             </div>
                             <div class="col-sm-3">
                                 <asp:TextBox ID="RoleName" runat="server" Text='<%# BindItem.RoleName %>' Placeholder="Role Name"></asp:TextBox>
                             </div>
+                        </div>
                         </InsertItemTemplate>
                     </asp:ListView>
-                    <asp:ObjectDataSource ID="RoleListViewODS" runat="server">
+                    <asp:ObjectDataSource ID="RoleListViewODS" runat="server" DataObjectTypeName="ChinookSystem.Security.RoleProfile" 
+                        DeleteMethod="RemoveRole" InsertMethod="AddRole" OldValuesParameterFormatString="original_{0}" 
+                        SelectMethod="ListAllRoles" TypeName="ChinookSystem.Security.RoleManager">
                     </asp:ObjectDataSource>
                 </div> <!-- eop -->
                 <!-- unregistered tab -->

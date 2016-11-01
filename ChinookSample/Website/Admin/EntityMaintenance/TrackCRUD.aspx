@@ -18,15 +18,15 @@
                 <td>
                     <asp:DropDownList ID="AlbumList" runat="server" DataSourceID="AlbumListODS" 
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="MediaTypeList" runat="server" DataSourceID="MediaTypeListODS"
                          DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="GenreList" runat="server" DataSourceID="GenreListODS"
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("GenreId") %>'>
+                        selectedvalue='<%# Eval("GenreId") %>'>
                     </asp:DropDownList></td>
                 <td>
                     <asp:Label Text='<%# Eval("Composer") %>' runat="server" ID="ComposerLabel" /></td>
@@ -52,16 +52,17 @@
                  <td>
                     <asp:DropDownList ID="AlbumList" runat="server" DataSourceID="AlbumListODS" 
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Bind("AlbumId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="MediaTypeList" runat="server" DataSourceID="MediaTypeListODS"
                          DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Bind("MediaTypeId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="GenreList" runat="server" DataSourceID="GenreListODS"
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("GenreId") %>'>
+                        selectedvalue='<%# Bind("GenreId") %>'>
                     </asp:DropDownList></td>
+                <td>
                     <asp:TextBox Text='<%# Bind("Composer") %>' runat="server" ID="ComposerTextBox" /></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("Milliseconds") %>' runat="server" ID="MillisecondsTextBox" /></td>
@@ -92,16 +93,17 @@
                 <td>
                     <asp:DropDownList ID="AlbumList" runat="server" DataSourceID="AlbumListODS" 
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Bind("AlbumId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="MediaTypeList" runat="server" DataSourceID="MediaTypeListODS"
                          DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Bind("MediaTypeId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="GenreList" runat="server" DataSourceID="GenreListODS"
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("GenreId") %>'>
+                        selectedvalue='<%# Bind("GenreId") %>'>
                     </asp:DropDownList></td>
+                <td>
                     <asp:TextBox Text='<%# Bind("Composer") %>' runat="server" ID="ComposerTextBox" /></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("Milliseconds") %>' runat="server" ID="MillisecondsTextBox" /></td>
@@ -125,16 +127,17 @@
                 <td>
                     <asp:DropDownList ID="AlbumList" runat="server" DataSourceID="AlbumListODS" 
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="MediaTypeList" runat="server" DataSourceID="MediaTypeListODS"
                          DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="GenreList" runat="server" DataSourceID="GenreListODS"
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("GenreId") %>'>
+                        selectedvalue='<%# Eval("GenreId") %>'>
                     </asp:DropDownList></td>
+                <td>    
                     <asp:Label Text='<%# Eval("Composer") %>' runat="server" ID="ComposerLabel" /></td>
                 <td>
                     <asp:Label Text='<%# Eval("Milliseconds") %>' runat="server" ID="MillisecondsLabel" /></td>
@@ -149,7 +152,8 @@
             <table runat="server">
                 <tr runat="server">
                     <td runat="server">
-                        <table runat="server" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
+                        <table runat="server" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; 
+                        border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
                             <tr runat="server" style="background-color: #E0FFFF; color: #333333;">
                                 <th runat="server"></th>
                                 <th runat="server">Id</th>
@@ -187,21 +191,21 @@
                     <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                 </td>
                 <td>
-                    <asp:Label Text='<%# Eval("TrackId") %>' runat="server" ID="TrackIdLabel" /></td>
+                    <asp:Label Text='<%# Eval("TrackId") %>' runat="server" ID="TrackIdLabel" width="75px"/></td>
                 <td>
                     <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                 <td>
                     <asp:DropDownList ID="AlbumList" runat="server" DataSourceID="AlbumListODS" 
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Eval("AlbumId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="MediaTypeList" runat="server" DataSourceID="MediaTypeListODS"
                          DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
+                        selectedvalue='<%# Eval("MediaTypeId") %>'></asp:DropDownList></td>
                 <td>
                     <asp:DropDownList ID="GenreList" runat="server" DataSourceID="GenreListODS"
                         DataTextField="DisplayText" DataValueField="PFKeyIdentifier"
-                        SelectedValueParameter='<%# Eval("GenreId") %>'>
+                        selectedvalue='<%# Eval("GenreId") %>'>
                     </asp:DropDownList></td>
                     <asp:Label Text='<%# Eval("Composer") %>' runat="server" ID="ComposerLabel" /></td>
                 <td>
